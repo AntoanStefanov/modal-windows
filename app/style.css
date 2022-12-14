@@ -5,7 +5,7 @@ body {
   text-align: center;
 }
 
-.btn {
+.show-modal {
   border: none;
   border-radius: 50px;
   padding: 2em;
@@ -18,6 +18,6 @@ body {
   cursor: pointer;
 }
 
-.btn:hover {
+.show-modal:hover {
   background-color: rgb(131, 221, 27);
 }
