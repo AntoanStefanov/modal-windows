@@ -15,4 +15,9 @@ body {
   font-family: inherit;
   font-size: 1.1em;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(131, 221, 27);
 }
