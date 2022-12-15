@@ -1,5 +1,9 @@
 'use strict';
 
+const addRemoveClass = (el, _class, toAdd = true) => {
+  toAdd ? el.classList.add(_class) : el.classList.remove(_class);
+};
+
 /**
  * @return {void} activating Model.
  */
@@ -13,12 +17,13 @@ function activateModal() {
     if (tagName.toLowerCase() === 'button') {
       const modal = document.querySelector('.modal');
       const overlay = document.querySelector('.overlay');
+
       if (className === 'show-modal') {
-        modal.classList.remove('hidden');
-        overlay.classList.remove('hidden');
+        addRemoveClass(modal, 'hidden', false);
+        addRemoveClass(overlay, 'hidden', false);
       } else if (className === 'close-modal') {
-        modal.classList.add('hidden');
-        overlay.classList.add('hidden');
+        addRemoveClass(modal, 'hidden');
+        addRemoveClass(overlay, 'hidden');
       }
     }
   });
