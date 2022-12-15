@@ -45,6 +45,9 @@ function activateModal() {
 
   // This one or above ?
   for (let i = 0; i < btnsShowModal.length; i++) {
+    // 2nd arg: a function /anonymous(no name)/
+    // also it's a function expression, bcs
+    // function (e) {...} produces a value, function value.
     btnsShowModal[i].addEventListener('click', function (e) {
       showModal();
     });
