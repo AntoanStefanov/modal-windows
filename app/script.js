@@ -25,7 +25,7 @@ function activateModal() {
   const btnCloseModal = document.querySelector('.close-modal');
   const btnsShowModal = document.querySelectorAll('.show-modal');
 
-  const toggleModal = (key = false) => {
+  const toggleModal = (event) => {
     toggleCSSClassArray([modal, overlay], 'hidden');
   };
 
@@ -59,7 +59,16 @@ function activateModal() {
   // https://developer.mozilla.org/en-US/docs/Web/API/Event
   document.addEventListener('keydown', function (event) {
     const keyName = event.key;
+    // If one of the buttons are selected,
+    // using 'space', 'enter' will trigger the PointerEvent,
+    // IN SOME CASES, while clicking the button, it's selected Then that happens
+
     if (keyName === 'Escape') {
+      // add() -> Adds all arguments passed, except those already present.
+      // modal.classList.add('hidden');
+      // overlay.classList.add('hidden');
+      // So, I don't see point of checking with '.contains()' ?
+
       if (!modal.classList.contains('hidden')) {
         modal.classList.add('hidden');
         overlay.classList.add('hidden');
