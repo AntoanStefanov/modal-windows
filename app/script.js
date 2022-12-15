@@ -25,7 +25,7 @@ function activateModal() {
   const btnCloseModal = document.querySelector('.close-modal');
   const btnsShowModal = document.querySelectorAll('.show-modal');
 
-  const toggleModal = () => {
+  const toggleModal = (key = false) => {
     toggleCSSClassArray([modal, overlay], 'hidden');
   };
 
@@ -51,6 +51,21 @@ function activateModal() {
 
   btnCloseModal.addEventListener('click', toggleModal);
   overlay.addEventListener('click', toggleModal);
+
+  // ESC key
+  // Hey, JS call this function when a 'keydown' event happens,
+  // and pass in the event object as an argument.
+  // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#extra_properties_of_event_objects
+  // https://developer.mozilla.org/en-US/docs/Web/API/Event
+  document.addEventListener('keydown', function (event) {
+    const keyName = event.key;
+    if (keyName === 'Escape') {
+      if (!modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        overlay.classList.add('hidden');
+      }
+    }
+  });
 }
 
 activateModal();
