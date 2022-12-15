@@ -6,6 +6,7 @@ const toggleCSSClass = (el, className) => {
     : el.classList.add(className);
 };
 
+// this variable holds the function value :?
 const toggleCSSClassArray = (elArray, className) => {
   for (const el of elArray) {
     toggleCSSClass(el, className);
@@ -27,7 +28,7 @@ function activateModal() {
     toggleCSSClassArray([modal, overlay], 'hidden');
   };
 
-  /*
+  /* !uncomment body to work.
   body.addEventListener('click', (ev) => {
     const tagName = ev.target.tagName;
     const className = ev.target.className;
