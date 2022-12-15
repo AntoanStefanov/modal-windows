@@ -28,6 +28,11 @@
         "indent": [
             "error",
             2
+        ],
+        // https://eslint.org/docs/latest/rules/operator-linebreak
+        "operator-linebreak": [
+            "error",
+            "before"
         ]
     }
 }

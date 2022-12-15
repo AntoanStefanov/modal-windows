@@ -1,12 +1,14 @@
 'use strict';
 
-const addRemoveClass = (el, _class, toAdd = true) => {
-  toAdd ? el.classList.add(_class) : el.classList.remove(_class);
+const toggleCSSClass = (el, className) => {
+  el.classList.contains(className)
+    ? el.classList.remove(className)
+    : el.classList.add(className);
 };
 
-const addRemoveClassArray = (elArray, _class, toAdd = true) => {
+const toggleCSSClassArray = (elArray, className) => {
   for (const el of elArray) {
-    addRemoveClass(el, _class, toAdd);
+    toggleCSSClass(el, className);
   }
 };
 
@@ -21,23 +23,18 @@ function activateModal() {
   const btnCloseModal = document.querySelector('.close-modal');
   const btnsShowModal = document.querySelectorAll('.show-modal');
 
-  const showModal = () => {
-    addRemoveClassArray([modal, overlay], 'hidden', false);
+  const toggleModal = () => {
+    toggleCSSClassArray([modal, overlay], 'hidden');
   };
 
-  const hideModal = () => {
-    addRemoveClassArray([modal, overlay], 'hidden');
-  };
   /*
   body.addEventListener('click', (ev) => {
-    const className = ev.target.className;
     const tagName = ev.target.tagName;
-
+    const className = ev.target.className;
+    console.log(tagName, className);
     if (tagName.toLowerCase() === 'button') {
-      if (className === 'show-modal') {
-        showModal();
-      } else if (className === 'close-modal') {
-        hideModal();
+      if (className === 'show-modal' || className === 'close-modal') {
+        toggleModal();
       }
     }
   });
@@ -48,14 +45,10 @@ function activateModal() {
     // 2nd arg: a function /anonymous(no name)/
     // also it's a function expression, bcs
     // function (e) {...} produces a value, function value.
-    btnsShowModal[i].addEventListener('click', function (e) {
-      showModal();
-    });
+    btnsShowModal[i].addEventListener('click', toggleModal);
   }
 
-  btnCloseModal.addEventListener('click', (ev) => {
-    hideModal();
-  });
+  btnCloseModal.addEventListener('click', toggleModal);
 }
 
 activateModal();
