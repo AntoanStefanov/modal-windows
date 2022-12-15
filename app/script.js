@@ -7,6 +7,7 @@ const toggleCSSClass = (el, className) => {
 };
 
 // this variable holds the function value :?
+// -> variable + function value = function expression!
 const toggleCSSClassArray = (elArray, className) => {
   for (const el of elArray) {
     toggleCSSClass(el, className);
