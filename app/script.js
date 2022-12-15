@@ -31,7 +31,6 @@ function activateModal() {
   body.addEventListener('click', (ev) => {
     const tagName = ev.target.tagName;
     const className = ev.target.className;
-    console.log(tagName, className);
     if (tagName.toLowerCase() === 'button') {
       if (className === 'show-modal' || className === 'close-modal') {
         toggleModal();
@@ -49,6 +48,7 @@ function activateModal() {
   }
 
   btnCloseModal.addEventListener('click', toggleModal);
+  overlay.addEventListener('click', toggleModal);
 }
 
 activateModal();
