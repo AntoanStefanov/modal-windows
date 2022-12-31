@@ -1,2 +1,2 @@
 # modal-windows
-Commmon webpages' components - Modal Windows. Classes Work.
+Part of a JS course. Learning phase. Common webpages' components - Modal Windows.
